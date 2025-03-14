@@ -1,9 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
-import time  # Import the time module
-
-#delay_seconds = 5  # Set the delay in seconds between requests
+import time 
 
 def scrape_car_listings(max_pages):
     start_time = time.time()  # Record the start time
@@ -72,10 +70,6 @@ def scrape_car_listings(max_pages):
             print(f"Błąd w skrapowaniu strony {page}. Kod błędu: {response.status_code}")
             break
 
-        # Oczekiwanie na załadowanie się strony
-        # print(f"Oczekiwanie {delay_seconds} sekund przed pobraniem kolejnej strony...")
-        # time.sleep(delay_seconds)  # Odstęp czasowy
-
     # zapis do pliku CSV
     with open(f'{max_pages}_aukcje.csv', 'w', newline='', encoding='utf-8-sig') as file:
         writer = csv.writer(file)
@@ -91,6 +85,6 @@ def scrape_car_listings(max_pages):
     print(f"Zapisano skrap w pliku: {max_pages}_aukcje.csv")
     print(f"Czas skrapowania: {elapsed_time:.2f} sekund")
 
-# Wywołanie funkcji
+# Wywołanie funkcji 8004 strony otomoto
 scrape_car_listings(8004)
 
